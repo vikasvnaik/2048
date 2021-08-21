@@ -1,7 +1,7 @@
 package com.game.ui.main
 
 import android.os.Bundle
-import com.game.a2048.ui.base.BaseAppCompatActivity
+import com.game.ui.base.BaseAppCompatActivity
 import com.game.databinding.ActivityMainBinding
 import com.game.extensions.viewBinding
 
@@ -10,6 +10,17 @@ class MainActivity : BaseAppCompatActivity(){
     override fun layout() = binding.root
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
 
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }
