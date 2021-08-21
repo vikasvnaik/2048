@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
+apply from: '../flavors.gradle'
+apply from: '../dependencies.gradle'
+apply from: '../buildtypes.gradle'
 
 android {
     compileSdk 30
@@ -10,9 +13,12 @@ android {
         applicationId "com.game"
         minSdk 21
         targetSdk 30
-        versionCode 1
-        versionName "1.0"
-
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+        buildConfigField "String", "VERSION_NAME", "\"${rootProject.ext.versionName}\""
+        buildConfigField "String", "VERSION_CODE", "\"${rootProject.ext.versionCode}\""
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,11 +44,5 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
 }

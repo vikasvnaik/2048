@@ -1,0 +1,31 @@
+android {
+    flavorDimensions 'env', 'audience'
+    productFlavors {
+        dev {
+            dimension = 'audience'
+        }
+
+        qa {
+            dimension = 'audience'
+        }
+
+        store {
+            dimension = 'audience'
+        }
+
+        stage {
+            dimension = 'env'
+            applicationId "com.game.dev"
+        }
+        preprod {
+            dimension = 'env'
+            applicationId "com.game.qa"
+        }
+        prod {
+            dimension = 'env'
+            applicationId "com.game.prod"
+        }
+    }
+}
+
+
