@@ -11,15 +11,21 @@ class UserPrefDataManager(private val userDataRepo: UserDataRepo) : UserDataRepo
             userDataRepo.userName = value
         }
 
-    override var score: Int?
+    override var score: Long?
         get() = userDataRepo.score
         set(value) {
             userDataRepo.score = value
         }
 
-    override var highScore: Int?
+    override var highScore: Long?
         get() = userDataRepo.highScore
         set(value) {
             userDataRepo.highScore = value
+        }
+
+    override var firstRun: Boolean?
+        get() = userDataRepo.firstRun
+        set(value) {
+            userDataRepo.firstRun = value
         }
 }

@@ -2,7 +2,7 @@ package com.game.ui.base
 
 import android.content.Context
 import androidx.startup.Initializer
-import com.game.ui.di.dependency
+import com.game.di.dependency
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.KoinApplication

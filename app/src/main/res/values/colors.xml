@@ -5,6 +5,31 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <!--<color name="black">#FF000000</color>-->
+    <color name="color_red_light">#FB5755</color>
+    <color name="color_red_dark">#fa2623</color>
+    <color name="color_green_light">#40c6ad</color>
+    <color name="color_green_dark">#1abb9c</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background">#FFFFFFFF</color>
+
+    <color name="text_white">#f9f6f2</color>
+    <color name="text_black">#776e65</color>
+    <color name="text_brown">#d6cdc4</color>
+    <color name="icon_background">#e8ba2e</color>
+
+    <!--Cell UI-->
+    <color name="mainBg">#1abb9c</color>
+    <color name="cellBg2">#ecf9f7</color>
+    <color name="cellBg4">#d9f4ee</color>
+    <color name="cellBg8">#c6eee6</color>
+    <color name="cellBg16">#b3e8de</color>
+    <color name="cellBg32">#a0e3d6</color>
+    <color name="cellBg64">#8dddce</color>
+    <color name="cellBg128">#79d7c5</color>
+    <color name="cellBg256">#66d2bd</color>
+    <color name="cellBg512">#53ccb5</color>
+    <color name="cellBg1024">#40c6ad</color>
+    <color name="cellBg2048">#2dc1a4</color>
+    <color name="cellBg4096">#1abb9c</color>
 </resources>
