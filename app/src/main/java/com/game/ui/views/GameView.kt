@@ -75,6 +75,10 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
     private var eYAll = 0
     private var titleWidthHighScore = 0
     private var titleWidthScore = 0
+
+    /***
+     * Initial function to start drawing UI components on the screen
+     * ***/
     public override fun onDraw(canvas: Canvas) {
         //Reset the transparency of the screen
         canvas.drawBitmap(background!!, 0f, 0f, paint)
@@ -101,6 +105,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         }
     }
 
+    /***
+     * On view size changed
+     * ***/
     override fun onSizeChanged(width: Int, height: Int, oldW: Int, oldH: Int) {
         super.onSizeChanged(width, height, oldW, oldH)
         getLayout(width, height)
@@ -109,6 +116,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         createOverlays()
     }
 
+    /***
+     * Set drawable icons on screen
+     * ***/
     private fun drawDrawable(
         canvas: Canvas,
         draw: Drawable?,
@@ -121,6 +131,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         draw.draw(canvas)
     }
 
+    /***
+     * For setting cell text
+     * ***/
     private fun drawCellText(canvas: Canvas, value: Int) {
         val textShiftY = centerText()
         if (value >= 8) {
@@ -136,6 +149,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         )
     }
 
+    /***
+     * For setting score text
+     * ***/
     private fun drawScoreText(canvas: Canvas) {
         //Drawing the score text: Ver 2
         paint.textSize = bodyTextSize
@@ -194,6 +210,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         )
     }
 
+    /***
+     * For setting new game button
+     * ***/
     private fun drawNewGameButton(canvas: Canvas, lightUp: Boolean) {
         if (lightUp) {
             drawDrawable(
@@ -223,6 +242,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         )
     }
 
+    /***
+     * Setting undo button
+     * ***/
     private fun drawUndoButton(canvas: Canvas) {
         drawDrawable(
             canvas,
@@ -241,6 +263,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         )
     }
 
+    /***
+     * Setting header text
+     * ***/
     private fun drawHeader(canvas: Canvas) {
         paint.textSize = headerTextSize
         paint.color = resources.getColor(AppColor.text_black)
@@ -254,7 +279,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
             paint
         )
     }
-
+    /***
+     * Setting instruction icon
+     * ***/
     private fun drawInstructions(canvas: Canvas) {
         paint.textSize = instructionsTextSize
         paint.textAlign = Paint.Align.LEFT
@@ -264,12 +291,16 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
             startingX.toFloat(), (endingY - textShiftY + textPaddingSize).toFloat(), paint
         )
     }
-
+    /***
+     * setting view background
+     * ***/
     private fun drawBackground(canvas: Canvas) {
         drawDrawable(canvas, backgroundRectangle, startingX, startingY, endingX, endingY)
     }
 
-    //Renders the set of 16 background squares.
+    /***
+     * Setting up all 16 cells
+     * ***/
     private fun drawBackgroundGrid(canvas: Canvas) {
         val resources = resources
         val backgroundCell = resources.getDrawable(AppDrawable.cell_bg)
@@ -285,6 +316,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         }
     }
 
+    /***
+     * Drawing cells on the screen
+     * ***/
     private fun drawCells(canvas: Canvas) {
         paint.textSize = textSize
         paint.textAlign = Paint.Align.CENTER
@@ -368,6 +402,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         }
     }
 
+    /***
+     * Setting up end game screen
+     * ***/
     private fun drawEndGameState(canvas: Canvas) {
         var alphaChange = 1.0
         continueButtonEnabled = false
@@ -394,6 +431,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         }
     }
 
+    /***
+     * Setting up option to enable endless game
+     * ***/
     private fun drawEndlessText(canvas: Canvas) {
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = bodyTextSize
@@ -406,6 +446,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         )
     }
 
+    /***
+     * Setting up view after game ended
+     * ***/
     private fun createEndGameStates(canvas: Canvas, win: Boolean, showButton: Boolean) {
         val width = endingX - startingX
         val length = endingY - startingY
@@ -452,6 +495,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         }
     }
 
+    /***
+     * Creating background using bitmap
+     * ***/
     private fun createBackgroundBitmap(width: Int, height: Int) {
         background = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(background!!)
@@ -463,6 +509,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         if (showHelp) drawInstructions(canvas)
     }
 
+    /***
+     * Creating cells using bit map
+     * ***/
     private fun createBitmapCells() {
         val resources = resources
         val cellRectangleIds = cellRectangleIds
@@ -490,6 +539,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         }
     }
 
+    /***
+     * Cells for different values
+     * ***/
     private val cellRectangleIds: IntArray
         private get() {
             val cellRectangleIds = IntArray(numCellTypes)
@@ -511,6 +563,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
             return cellRectangleIds
         }
 
+    /***
+     * Overlay on the screen on game end
+     * ***/
     private fun createOverlays() {
         val resources = resources
         //Initialize overlays
@@ -541,6 +596,9 @@ class GameView(context: Context, private val userDataManager: UserPrefDataManage
         lastFPSTime = System.nanoTime()
     }
 
+    /***
+     * setting up the layout
+     * ***/
     private fun getLayout(width: Int, height: Int) {
         cellSize = Math.min(width / (game.numSquaresX + 1), height / (game.numSquaresY + 3))
         gridWidth = cellSize / 7
